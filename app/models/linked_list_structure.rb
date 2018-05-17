@@ -1,0 +1,2 @@
+class LinkedListStructure < DataStructure
+end

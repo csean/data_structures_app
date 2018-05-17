@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Data Structures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @data_structures %>
+  </tbody>
+</table>
+
+<%= paginate @data_structures %>
