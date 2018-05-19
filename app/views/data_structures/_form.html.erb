@@ -1,6 +1,6 @@
 <%= simple_form_for(data_structure, local: true) do |f| %>
   <%= f.input :name %>
-  <%= f.input :type, collection: [['Linked List', 'LinkedListStructure'], ['Binary Search Tree', 'BinarySearchTreeStructure']] %>
+  <%= f.input :structure_type, collection: DataStructure.structure_types.keys %>
 
   <%= link_to 'Cancel', data_structures_path, class: 'btn btn-danger' %>
   <%= f.submit 'Submit', class: 'btn btn-success' %>

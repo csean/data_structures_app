@@ -1,14 +1,14 @@
 class CreateStructureService
   attr_accessor :type, :values
 
-  def initialize(type, values)
-    @type = type
-    @values = values
+  def initialize(params)
+    @type = params[:structure_type]
+    @values = params[:values]
   end
 
 
-  def call
-    if @type == 'LinkedListStructure'
+  def create
+    if @type == 'linked_list'
       CreateStructure::LinkedListStructure.new(values).create
     end
   end

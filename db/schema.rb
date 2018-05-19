@@ -17,7 +17,8 @@ ActiveRecord::Schema.define(version: 2018_05_17_002548) do
 
   create_table "data_structures", force: :cascade do |t|
     t.string "name", null: false
-    t.string "type", null: false
+    t.integer "structure_type", default: 0
+    t.text "structure"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

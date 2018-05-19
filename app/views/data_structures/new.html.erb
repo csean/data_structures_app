@@ -1,3 +1,22 @@
 <h1>Creating New Data Structure</h1>
 
-<%= render 'form', data_structure: @data_structure %>
+<%= simple_form_for(@data_structure) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :structure_type, collection: structure_type_for_select %>
+
+  <div id="values" class="form-group">
+    <label class="control-label">Initial Values</label>
+
+    <%= render 'data_structures/new_value_field' %>
+  </div>
+
+  <div class="form-group" style="padding-top: 10px;">
+    <%= link_to '#', id: 'add-value', class: 'btn btn-info', data: { partial: "#{render 'data_structures/new_value_field'}"} do %>
+      <%= fa_icon 'fw plus-circle' %>
+      Add Value
+    <% end %>
+  </div>
+
+  <%= link_to 'Cancel', data_structures_path, class: 'btn btn-danger' %>
+  <%= f.submit 'Submit', class: 'btn btn-success' %>
+<% end %>

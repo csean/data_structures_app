@@ -1,0 +1,15 @@
+<div id="linked-list" class="row">
+  <ul>
+    <% node = structure.structure_object %>
+    <% while(node) %>
+      <li>
+        <div>
+          <%= node.data %>
+         </div>
+      </li>
+      <li class="vertical-line">&nbsp;</li>
+      <% node = node.next %>
+    <% end %>
+  </ul>
+
+</div>

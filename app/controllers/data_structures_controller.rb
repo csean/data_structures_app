@@ -24,7 +24,8 @@ class DataStructuresController < ApplicationController
   # POST /data_structures
   # POST /data_structures.json
   def create
-    @data_structure = DataStructure.new(data_structure_params)
+    @data_structure = DataStructure.new(data_structure_params.merge(user_id: current_user.id))
+    @data_structure.structure = CreateStructureService.new(data_structure_params).create.to_yaml
 
     respond_to do |format|
       if @data_structure.save
@@ -62,13 +63,13 @@ class DataStructuresController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_data_structure
-      @data_structure = DataStructure.find(params[:id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def data_structure_params
-      params.fetch(:data_structure, {})
+      params.require(:data_structure).permit(
+        :name,
+        :structure_type,
+        values: []
+      )
     end
 end

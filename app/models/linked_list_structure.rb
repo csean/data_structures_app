@@ -1,2 +1,0 @@
-class LinkedListStructure < DataStructure
-end

@@ -1,4 +1,8 @@
-<h1>Show <%= @data_structure.name %></h1>
+<h1>Show <%= @data_structure.name %> <span class="text-muted small"><%= @data_structure.structure_type.titleize %></h1>
+
+<% if @data_structure.linked_list? %>
+  <%= render partial: 'data_structures/linked_list', locals: { structure: @data_structure } %>
+<% end %>
 
 <%= link_to 'Edit', edit_data_structure_path(@data_structure) %> |
 <%= link_to 'Back', data_structures_path %>
