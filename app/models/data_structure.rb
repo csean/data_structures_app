@@ -1,7 +1,9 @@
 class DataStructure < ApplicationRecord
   attr_accessor :values
   enum structure_type: { linked_list: 0, binary_search_tree: 1 }
-  validates :name, presence: true
+  validates :name, :structure_type, presence: true
+
+  belongs_to :user
 
   scope :by_user, -> (user_id) { where(user_id: user_id) }
 

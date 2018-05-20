@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe CreateStructure::LinkedListStructure do
-  subject(:service) { CreateStructure::LinkedListStructure.new([1,2,3].create)}
+  subject(:service) { CreateStructure::LinkedListStructure.new([1,2,3]).create }
 
   it 'returns a linked list node object' do
     expect(service).to be_a LinkedList::Node

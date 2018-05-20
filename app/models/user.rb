@@ -6,4 +6,6 @@ class User < ApplicationRecord
          :rememberable, :trackable, :validatable
 
   validates :name, :email, presence: true
+
+  has_many :data_structures, dependent: :destroy
 end
