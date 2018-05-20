@@ -8,8 +8,10 @@ class CreateStructureService
 
 
   def create
-    if @type == 'linked_list'
+    if type == 'linked_list'
       CreateStructure::LinkedListStructure.new(values).create
+    elsif type == 'binary_search_tree'
+      CreateStructure::BinarySearchTreeStructure.new(values).create
     end
   end
 end

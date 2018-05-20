@@ -2,6 +2,8 @@
 
 <% if @data_structure.linked_list? %>
   <%= render partial: 'data_structures/linked_list', locals: { structure: @data_structure } %>
+<% elsif @data_structure.binary_search_tree? %>
+  <%= render partial: 'data_structures/binary_search_tree', locals: { structure: @data_structure } %>
 <% end %>
 
 <%= link_to 'Edit', edit_data_structure_path(@data_structure) %> |
